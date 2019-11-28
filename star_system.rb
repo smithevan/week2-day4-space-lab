@@ -27,7 +27,7 @@ class StarSystem
  end
 
  def get_planets_with_no_moons
-   #planet_moon_data = @planets.map { |planet| planet.number_of_moons }
+   #
    @planets.find_all {|planet| planet.number_of_moons == 0}
  end
 
@@ -40,5 +40,25 @@ class StarSystem
    planets_close_to_sun = @planets.find_all {|planet| planet.distance_from_sun < distance}
    return planets_close_to_sun.length
  end
+
+ def get_total_number_of_moons
+   planet_moon_data = @planets.map { |planet| planet.number_of_moons }
+   all_moons = planet_moon_data.reduce {|total_moons, current_moon| total_moons + current_moon}
+   return all_moons
+ end
+
+ # def get_planet_names_sorted_by_increasing_distance_from_sun
+ #   planets_distance_data = @planets.map { |planet| planet.distance_from_sun }
+ #   planets_distance_data.sort
+ #   new_array = planets_distance_data.map do |distance|
+ #     distance == @planets.distance_from_sun
+
+
+  # end
+   #return new_array
+   #sorted_array = planets_distance_data.map { |planets| @planets.distance_from_sun == planets}
+   #planets_sorted = planets_distance_data.find {|planet| planet == @planets.distance_from_sun}
+   #return planets_sorted.name
+ # end
 
 end
