@@ -1,5 +1,5 @@
 require('minitest/autorun')
-require('minitest/reporters') 
+require('minitest/reporters')
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative('../planet')
@@ -26,19 +26,19 @@ class TestStarSystem < Minitest::Test
     assert_equal("Solar System", @solar_system.name)
   end
 
-  # def test_has_planets
-  #   assert_equal(9, @solar_system.planets.count)
-  # end
+  def test_has_planets
+    assert_equal(9, @solar_system.planets.count)
+  end
   #
-  # def test_planet_names
-  #   expected_names = ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]
-  #   assert_equal(expected_names, @solar_system.planet_names)
-  # end
+  def test_planet_names
+    expected_names = ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]
+    assert_equal(expected_names, @solar_system.planet_names)
+  end
   #
-  # def test_get_planet_by_name
-  #   result = @solar_system.get_planet_by_name("Mars")
-  #   assert_equal(@mars, result)
-  # end
+  def test_get_planet_by_name
+    result = @solar_system.get_planet_by_name("Mars")
+    assert_equal(@mars, result)
+  end
   #
   # def test_get_largest_planet
   #   result = @solar_system.get_largest_planet
